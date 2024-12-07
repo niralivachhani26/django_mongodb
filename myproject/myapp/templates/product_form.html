@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Form</title>
+</head>
+<body>
+    <h1>Product Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Name" value="{{ product.name|default_if_none:'' }}">
+        <textarea name="description" placeholder="Description">{{ product.description|default_if_none:'' }}</textarea>
+        <input type="number" step="0.01" name="price" placeholder="Price" value="{{ product.price|default_if_none:'' }}">
+        <input type="number" name="stock" placeholder="Stock" value="{{ product.stock|default_if_none:'' }}">
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
